@@ -1,0 +1,582 @@
+# Definition of ruby style-guide modifications specific for Loyalty NZ.
+#
+# These definitions override the standard rule definitions, which can be
+# found here:
+#
+# https://rubocop.readthedocs.io/en/latest/cops/
+#
+# To view a list of active rules within a particular service, first ensure
+# `rubocop` is installed, then run via command line:
+#
+# `$ bundle exec rubocop --show-cops > rules.yml`
+#
+# Each modification within this configuration  MUST both describe the
+# modification and give a reason why this modification exists.
+#
+
+##
+# Layout modifications
+##
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/IndentArray:
+  Description: Checks the indentation of the first element in an array literal.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/IndentHash:
+  Description: Checks the indentation of the first key in a hash literal.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLinesAroundModuleBody:
+  Description: Keeps track of empty lines around module bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLinesAroundMethodBody:
+  Description: Keeps track of empty lines around method bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLinesAroundClassBody:
+  Description: Keeps track of empty lines around class bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLinesAroundBlockBody:
+  Description: Keeps track of empty lines around block bodies.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLineBetweenDefs:
+  Description: Use empty lines between defs.
+  StyleGuide: "#empty-lines-between-methods"
+  Enabled: false
+  AllowAdjacentOneLineDefs: false
+  NumberOfEmptyLines: 1
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Description: Keeps track of empty lines around exception handling keywords.
+  StyleGuide: "#empty-lines-around-bodies"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Can generate excessive whitespace.
+#
+Layout/ElseAlignment:
+  Description: Align elses and elsifs correctly.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/DotPosition:
+  Description: Checks the position of the dot in multi-line method calls.
+  StyleGuide: "#consistent-multi-line-chains"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/SpaceInsideBrackets:
+  Description: No spaces after [ or before ].
+  StyleGuide: "#no-spaces-braces"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/SpaceAroundBlockParameters:
+  Description: Checks the spacing inside and after block parameters pipes.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/SpaceInsideParens:
+  Description: No spaces after ( or before ).
+  StyleGuide: "#no-spaces-braces"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/SpaceInsideStringInterpolation:
+  Description: Checks for padding/surrounding spaces inside string interpolation.
+  StyleGuide: "#string-interpolation"
+  Enabled: false
+
+# Change: AllowForAlignment set to true.
+# Reason: Stylistic freedom.
+#
+Layout/ExtraSpacing:
+  Description: Do not use unnecessary spacing.
+  Enabled: true
+  AllowForAlignment: true
+  ForceEqualSignAlignment: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/ClosingParenthesisIndentation:
+  Description: Checks the indentation of hanging closing parentheses.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Layout/IndentationWidth:
+  Description: Use 2 spaces for indentation.
+  StyleGuide: "#spaces-indentation"
+  Enabled: false
+  Width: 2
+  IgnoredPatterns: []
+
+##
+# Lint modifications
+##
+
+# Change: Disabled.
+# Reason: Debatable readability.
+#
+Lint/AmbiguousRegexpLiteral:
+  Description: Checks for ambiguous regexp literals in the first argument of a method
+    invocation without parentheses.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Debatable readability.
+#
+Lint/PercentStringArray:
+  Description: Checks for unwanted commas and quotes in %w/%W literals.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Modifications to existing services deemed too great (FIXME).
+#
+Lint/AmbiguousBlockAssociation:
+  Description: Checks for ambiguous block association with method when param passed
+    without parentheses.
+  StyleGuide: "#syntax"
+  Enabled: false
+
+# Change: AllowSafeAssignment: true.
+# Reason: Allow for conditional assignments, however enforce parentheses to
+#         explicitly show what you're doing i.e. assignment vs comparator.
+#
+Lint/AssignmentInCondition:
+  Description: Don't use assignment in conditions.
+  StyleGuide: "#safe-assignment-in-condition"
+  Enabled: true
+  AllowSafeAssignment: true
+
+# Change: Disabled.
+# Reason: Debatable readability. Prefer `variable` however we allow the developer to use
+#         either based on their preference.
+#
+Lint/EndAlignment:
+  Description: Align ends correctly.
+  Enabled: false
+  # EnforcedStyleAlignWith: keyword
+  # SupportedStylesAlignWith:
+  # - keyword
+  # - variable
+  # - start_of_line
+
+##
+# Metrics modifications
+##
+
+# Change: Disabled.
+# Reason: (TODO) Current service implementations exceed this frequently, need to find good max
+# limit before re-enabling.
+#
+Metrics/AbcSize:
+  Description: A calculated magnitude based on number of assignments, branches, and
+    conditions.
+  Reference: http://c2.com/cgi/wiki?AbcMetric
+  Enabled: false
+  Max: 15
+
+# Change: Disabled.
+# Reason: (TODO) Current service implementations exceed this frequently, need to find good max
+# limit before re-enabling.
+#
+Metrics/BlockLength:
+  Description: Avoid long blocks with many lines.
+  Enabled: false
+  CountComments: false
+  Max: 25
+  ExcludedMethods: []
+
+# Change: Disabled.
+# Reason: Existing codebase changes deemed too significant (FIXME).
+#
+Metrics/BlockNesting:
+  Description: Avoid excessive block nesting
+  StyleGuide: "#three-is-the-number-thou-shalt-count"
+  Enabled: false
+  CountBlocks: false
+  Max: 3
+
+# Change: Disabled.
+# Reason: Although this can sometimes be a codesmell of complexity, preference
+#         is for peer reviewer to analyse and make a determination.
+#
+Metrics/ClassLength:
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Ambiguous warning.
+#
+Metrics/CyclomaticComplexity:
+  Description: A complexity metric that is strongly correlated to the number of test
+    cases needed to validate a method.
+  Enabled: false
+  Max: 6
+
+# Change: Disabled. Potential to define a larger character limit if desired e.g. 120 char.
+# Reason: Rule originally created for limitations of displaying code on smaller monitors.
+#         This is no longer an issue with larger resolution displays.
+#
+Metrics/LineLength:
+  Description: Limit lines to 80 characters.
+  StyleGuide: "#80-character-limits"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: (TODO) Current service implementations exceed this frequently, need to find good max
+# limit before re-enabling.
+#
+Metrics/MethodLength:
+  Description: Avoid methods longer than 10 lines of code.
+  StyleGuide: "#short-methods"
+  Enabled: false
+  CountComments: false
+  Max: 10
+
+# Change: Disabled.
+# Reason: Ambiguous warning, preference is for peer reviewer to analyse and
+#         make the determination.
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+##
+# Naming modifications
+##
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Naming/AccessorMethodName:
+  Description: Check the naming of accessor methods for get_/set_.
+  StyleGuide: "#accessor_mutator_method_names"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Naming/PredicateName:
+  Description: Check the names of predicate methods.
+  StyleGuide: "#bool-methods-qmark"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Naming/VariableNumber:
+  Description: Use the configured style when numbering variables.
+  Enabled: false
+
+##
+# Performance modifications
+##
+
+# Change: Disabled.
+# Reason: Not always valid.
+#
+Performance/HashEachMethods:
+  Description: Use `Hash#each_key` and `Hash#each_value` instead of `Hash#keys.each`
+    and `Hash#values.each`.
+  StyleGuide: "#hash-each"
+  Enabled: false
+
+##
+# Security modifications
+##
+
+# Change: Disabled.
+# Reason: Current service implementations of YAML load include aliases and other features that
+#         break safe_load out of the box implementation. As long as all YAML files loaded are
+#         from trusted sources, risk of remote code execution should be mitigated.
+#
+Security/YAMLLoad:
+  Description: Prefer usage of `YAML.safe_load` over `YAML.load` due to potential security
+    issues. See reference for more information.
+  Reference: https://ruby-doc.org/stdlib-2.3.3/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security
+  Enabled: false
+
+
+# Change: Disabled.
+# Reason: Only a security risk when calling eval() on data from untrusted sources.
+#         Leaving to the perogative of developer and peer reviewer to make distinction.
+#
+Security/Eval:
+  Description: The use of eval represents a serious security risk.
+  Enabled: false
+
+##
+# Style modifications
+##
+
+# Change: Disabled.
+# Reason: It's the 21st century.
+#
+Style/AsciiComments:
+  Description: Use only ascii symbols in comments.
+  StyleGuide: "#english-comments"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/BlockComments:
+  Description: Do not use block comments.
+  StyleGuide: "#no-block-comments"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/BracesAroundHashParameters:
+  Description: Enforce braces style around hash parameters.
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/ClassAndModuleChildren:
+  Description: Checks style of children classes and modules.
+  StyleGuide: "#namespace-definition"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom. There may be use cases for DateTime, we don't
+# want to incorrectly penalise with this rule.
+#
+Style/DateTime:
+  Description: Use Date or Time over DateTime.
+  StyleGuide: "#date--time"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: May still be relevant for older service versions.
+#
+Style/Encoding:
+  Description: Use UTF-8 as the source file encoding.
+  StyleGuide: "#utf-8"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Perceived as an implicit catch all hack. Preference is to explicitly
+#         freeze string literals at the variable level.
+#
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/FormatStringToken:
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Overzealous guardclauses can sometimes not be appropriate.
+#         Preference is for peer reviewer to analyse and make a call.
+#
+Style/GuardClause:
+  Description: Check for conditionals that can be replaced with guard clauses
+  StyleGuide: "#no-nested-conditionals"
+  Enabled: false
+
+# Change: EnforcedStyle: `no_mixed_keys`.
+# Reason: Allow use of either syntax based on developer preference, however
+#         do not allow mixing of the two inside the same hash.
+#
+Style/HashSyntax:
+  Description: 'Prefer Ruby 1.9 hash syntax { a: 1, b: 2 } over 1.8 syntax { :a => 1,
+    :b => 2 }.'
+  StyleGuide: "#hash-literals"
+  Enabled: true
+  EnforcedStyle: no_mixed_keys
+  SupportedStyles:
+  - ruby19
+  - hash_rockets
+  - no_mixed_keys
+  - ruby19_no_mixed_keys
+  UseHashRocketsWithSymbolValues: false
+  PreferHashRocketsForNonAlnumEndingSymbols: false
+
+# Change: Disabled.
+# Reason: Freedom to explicitly call methods with () if developers so wish.
+#
+Style/MethodCallWithoutArgsParentheses:
+  Description: Do not use parentheses for method calls with no arguments.
+  StyleGuide: "#method-invocation-parens"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Debatable readability.
+#
+Style/PercentLiteralDelimiters:
+  Description: Use `%`-literal delimiters consistently
+  StyleGuide: "#percent-literal-braces"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: nil (FIXME).
+#
+Style/RegexpLiteral:
+  Description: Use / or %r around regular expressions.
+  StyleGuide: "#percent-r"
+  Enabled: false
+  EnforcedStyle: slashes
+  SupportedStyles:
+  - slashes
+  - percent_r
+  - mixed
+  AllowInnerSlashes: false
+
+# Change: Disabled.
+# Reason: Can be useful in some use cases, however should be avoided as a general rule.
+#
+Style/RescueModifier:
+  Description: Avoid using rescue in its modifier form.
+  StyleGuide: "#no-rescue-modifiers"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/Semicolon:
+  Description: Don't use semicolons to terminate expressions.
+  StyleGuide: "#no-semicolon"
+  Enabled: false
+
+
+# Change: Disabled.
+# Reason: Enforcement of one over the other seems overzealous so we leave it to the
+# developers perogative.
+#
+Style/StringLiterals:
+  Description: Checks if uses of quotes match the configured preference.
+  StyleGuide: "#consistent-string-literals"
+  Enabled: false
+  # EnforcedStyle: single_quotes
+  # SupportedStyles:
+  # - single_quotes
+  # - double_quotes
+  # ConsistentQuotesInMultiline: false
+
+# Change: Disabled.
+# Reason: Debatable readability of %() over [].
+#
+Style/SymbolArray:
+  Description: Use %i or %I for arrays of symbols.
+  StyleGuide: "#percent-i"
+  Enabled: false
+  # EnforcedStyle: percent
+  # MinSize: 0
+  # SupportedStyles:
+  # - percent
+  # - brackets
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/StringLiteralsInInterpolation:
+  Description: Checks if uses of quotes inside expressions in interpolated strings match
+    the configured preference.
+  Enabled: false
+  # EnforcedStyle: single_quotes
+  # SupportedStyles:
+  # - single_quotes
+  # - double_quotes
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/TrailingCommaInArguments:
+  Description: Checks for trailing comma in argument lists.
+  StyleGuide: "#no-trailing-params-comma"
+  Enabled: false
+  # EnforcedStyleForMultiline: no_comma
+  # SupportedStylesForMultiline:
+  # - comma
+  # - consistent_comma
+  # - no_comma
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/TrailingCommaInLiteral:
+  Description: Checks for trailing comma in array and hash literals.
+  StyleGuide: "#no-trailing-array-commas"
+  Enabled: false
+  # EnforcedStyleForMultiline: no_comma
+  # SupportedStylesForMultiline:
+  # - comma
+  # - consistent_comma
+  # - no_comma
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/UnneededInterpolation:
+  Description: Checks for strings that are just an interpolated expression.
+  Enabled: false
+
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
+#
+Style/UnlessElse:
+  Description: Do not use unless with else. Rewrite these with the positive case first.
+  StyleGuide: "#no-else-with-unless"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Debatable readability.
+#
+Style/WordArray:
+  Description: Use %w or %W for arrays of words.
+  StyleGuide: "#percent-w"
+  Enabled: false
+  # EnforcedStyle: percent
+  # SupportedStyles:
+  # - percent
+  # - brackets
+  # MinSize: 0
+  # WordRegex: !ruby/regexp /\A[\p{Word}\n\t]+\z/
