@@ -1,4 +1,4 @@
-# Definition of ruby style-guide modifications specific for Loyalty NZ.
+# Base definition of ruby style-guide modifications specific for Loyalty NZ.
 #
 # These definitions override the standard rule definitions, which can be
 # found here:
@@ -13,6 +13,8 @@
 # Each modification within this configuration  MUST both describe the
 # modification and give a reason why this modification exists.
 #
+# This base file should be inherited by subsequent Ruby apps built by
+# Loyalty NZ.
 
 ##
 # Layout modifications
@@ -328,9 +330,10 @@ Performance/HashEachMethods:
 ##
 
 # Change: Disabled.
-# Reason: Current service implementations of YAML load include aliases and other features that
-#         break safe_load out of the box implementation. As long as all YAML files loaded are
-#         from trusted sources, risk of remote code execution should be mitigated.
+# Reason: Current service implementations of YAML load include aliases and
+#         other features that break safe_load out of the box implementation.
+#         As long as all YAML files loaded are from trusted sources, risk
+#         of remote code execution should be mitigated.
 #
 Security/YAMLLoad:
   Description: Prefer usage of `YAML.safe_load` over `YAML.load` due to potential security
@@ -340,8 +343,9 @@ Security/YAMLLoad:
 
 
 # Change: Disabled.
-# Reason: Only a security risk when calling eval() on data from untrusted sources.
-#         Leaving to the perogative of developer and peer reviewer to make distinction.
+# Reason: Only a security risk when calling eval() on data from untrusted
+#         sources. Leaving to the perogative of developer and peer reviewer
+#         to make distinction.
 #
 Security/Eval:
   Description: The use of eval represents a serious security risk.
@@ -384,7 +388,7 @@ Style/ClassAndModuleChildren:
 
 # Change: Disabled.
 # Reason: Stylistic freedom. There may be use cases for DateTime, we don't
-# want to incorrectly penalise with this rule.
+#         want to incorrectly penalise with this rule.
 #
 Style/DateTime:
   Description: Use Date or Time over DateTime.
@@ -470,7 +474,8 @@ Style/RegexpLiteral:
   AllowInnerSlashes: false
 
 # Change: Disabled.
-# Reason: Can be useful in some use cases, however should be avoided as a general rule.
+# Reason: Can be useful in some use cases, however should be avoided as a
+#         general rule.
 #
 Style/RescueModifier:
   Description: Avoid using rescue in its modifier form.
@@ -487,8 +492,8 @@ Style/Semicolon:
 
 
 # Change: Disabled.
-# Reason: Enforcement of one over the other seems overzealous so we leave it to the
-# developers perogative.
+# Reason: Enforcement of one over the other seems overzealous so we leave it to
+#         the developers perogative.
 #
 Style/StringLiterals:
   Description: Checks if uses of quotes match the configured preference.
