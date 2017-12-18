@@ -7,4 +7,4 @@ Rubocop uses the widely accepted [Bbatsov Ruby Style Guide](https://github.com/b
 
 Our intention with modifying the rules are to "pick up the howlers" rather than stifle development teams with overzealous policy.
 
-For the list of Loyalty NZ modifications to the Bbatsov rules see [.rubocop.yml](ruby/.rubocop.yml)
+For the list of Loyalty NZ modifications to the Bbatsov rules see [.rubocop.yml](.rubocop.yml)
