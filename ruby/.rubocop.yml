@@ -29,6 +29,11 @@ Layout/IndentArray:
 
 # Change: Disabled.
 # Reason: Stylistic freedom.
+Layout/CaseIndentation:
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Stylistic freedom.
 #
 Layout/IndentHash:
   Description: Checks the indentation of the first key in a hash literal.
@@ -379,6 +384,11 @@ Style/BracesAroundHashParameters:
   Enabled: false
 
 # Change: Disabled.
+# Reason: Case equality is required in some instances.
+Style/CaseEquality:
+  Enabled: false
+
+# Change: Disabled.
 # Reason: Stylistic freedom.
 #
 Style/ClassAndModuleChildren:
@@ -480,6 +490,11 @@ Style/RegexpLiteral:
 Style/RescueModifier:
   Description: Avoid using rescue in its modifier form.
   StyleGuide: "#no-rescue-modifiers"
+  Enabled: false
+
+# Change: Disabled.
+# Reason: Breaks functionality in FinancialTransfer.rb#transfer_data_errors#190
+Style/SafeNavigation:
   Enabled: false
 
 # Change: Disabled.
